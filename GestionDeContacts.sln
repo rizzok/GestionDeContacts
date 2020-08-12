@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionDeContacts", "GestionDeContacts\GestionDeContacts.csproj", "{7FEA3E0C-1848-4A67-8161-92170B5FA497}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FEA3E0C-1848-4A67-8161-92170B5FA497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEA3E0C-1848-4A67-8161-92170B5FA497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEA3E0C-1848-4A67-8161-92170B5FA497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEA3E0C-1848-4A67-8161-92170B5FA497}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E818D6E-9723-4C97-8A8A-54D061643188}
+	EndGlobalSection
+EndGlobal
