@@ -37,6 +37,7 @@ namespace GestionDeContacts
             // PictureBox
             picBox.Enabled = false;
             picBox.Image = Resources.vide;
+            lblAddImage.Visible = false;
             // Add contact box items
             textBoxName.Enabled = false;
             lblFirstname.Visible = true;
@@ -45,15 +46,16 @@ namespace GestionDeContacts
             textBoxAddNumber.Enabled = false;
             btnAdd.Enabled = false;
             btnCancel.Enabled = false;
+            textBoxName.Text = "";
+            textBoxFirstname.Text = "";
+            textBoxAddNumber.Text = "";
             rdBtnPart.Checked = false;
             rdBtnPro.Checked = false;
-            // Search box elements
+            // Search box items
             groupBoxSearch.Enabled = true;
             btnModify.Enabled = true;
             btnDelete.Enabled = true;
             listBox.Enabled = true;
-            // Focus
-            listBox.Focus();
 
             /* TODO */
             // PictureBox -> hide text (after adding contact)
@@ -75,9 +77,9 @@ namespace GestionDeContacts
                 picBox.Image = Resources.particulier;
                 addContactItemsEnabling();
 
+
                 /* TODO */
-                // Add contact
-                // PictureBox -> add text
+                // Group same things between rdBtnPart and rdBtnPro in method addContactItemsEnabling() below
 
             }
         }
@@ -94,11 +96,6 @@ namespace GestionDeContacts
                 textBoxFirstname.Visible = false;
                 picBox.Image = Resources.professionnel;
                 addContactItemsEnabling();
-
-                /* TODO */
-                // Add contact
-                // PictureBox -> add text
-
             }
         }
 
@@ -114,6 +111,8 @@ namespace GestionDeContacts
             textBoxAddNumber.Enabled = true;
             btnAdd.Enabled = true;
             btnCancel.Enabled = true;
+            // Show label Add image
+            lblAddImage.Visible = true;
             // Others items disabled
             groupBoxSearch.Enabled = false;
             btnModify.Enabled = false;
@@ -128,12 +127,6 @@ namespace GestionDeContacts
          */
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            textBoxName.Text = "";
-            textBoxAddNumber.Text = "";
-            if (rdBtnPart.Checked)
-            {
-                textBoxFirstname.Text = "";
-            }
             initDefault();
         }
 
@@ -171,6 +164,7 @@ namespace GestionDeContacts
                 Particulier particulier = new Particulier(textBoxName.Text, textBoxFirstname.Text, textBoxAddNumber.Text, picBox.Image);
                 // Add object to Collection "lesContacts"
                 lesContacts.Add(particulier);
+                updateListBox();
             }
             // Add a "Professionnel" contact
             else if (rdBtnPro.Checked && textBoxName.Text != "" && textBoxAddNumber.Text != "")
@@ -179,7 +173,29 @@ namespace GestionDeContacts
                 Professionnel professionnel = new Professionnel(textBoxName.Text, textBoxAddNumber.Text, picBox.Image);
                 // Add object to Collection "lesContacts"
                 lesContacts.Add(professionnel);
+                updateListBox();
             }
+        }
+
+        /*
+         * Update listBox
+         */
+        private void updateListBox()
+        {
+            initDefault();
+            listBox.Items.Clear();
+            // Shutdown the painting of the ListBox as items are added.
+            listBox.BeginUpdate();
+            // Get data from "lesContacts" collection
+            foreach (Contact contact in lesContacts)
+            {
+                // Show the contact in listBox
+                listBox.Items.Add(contact.getNom() + " (" + contact.getTel() + ")");
+            }
+            // Allow the ListBox to repaint and display the new items.
+            listBox.EndUpdate();
+            // Select first item of the listBox
+            listBox.SetSelected(0, true);
         }
     }
 }

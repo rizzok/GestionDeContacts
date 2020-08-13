@@ -48,6 +48,7 @@
             this.textBoxSearchNumber = new System.Windows.Forms.TextBox();
             this.lblSearchNumber = new System.Windows.Forms.Label();
             this.listBox = new System.Windows.Forms.ListBox();
+            this.lblAddImage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.groupBoxAdd.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
@@ -241,11 +242,22 @@
             this.listBox.Size = new System.Drawing.Size(355, 468);
             this.listBox.TabIndex = 8;
             // 
+            // lblAddImage
+            // 
+            this.lblAddImage.AutoSize = true;
+            this.lblAddImage.Location = new System.Drawing.Point(35, 159);
+            this.lblAddImage.Name = "lblAddImage";
+            this.lblAddImage.Size = new System.Drawing.Size(122, 34);
+            this.lblAddImage.TabIndex = 9;
+            this.lblAddImage.Text = "Cliquez ici pour \r\najouter une image";
+            this.lblAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 491);
+            this.Controls.Add(this.lblAddImage);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.groupBoxSearch);
             this.Controls.Add(this.groupBoxAdd);
@@ -261,6 +273,7 @@
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -285,6 +298,7 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxSearchNumber;
         private System.Windows.Forms.Label lblSearchNumber;
+        private System.Windows.Forms.Label lblAddImage;
     }
 }
 
