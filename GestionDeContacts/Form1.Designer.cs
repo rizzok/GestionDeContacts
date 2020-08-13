@@ -59,8 +59,10 @@
             this.picBox.Location = new System.Drawing.Point(12, 12);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(170, 200);
+            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBox.TabIndex = 0;
             this.picBox.TabStop = false;
+            this.picBox.Click += new System.EventHandler(this.picBox_Click);
             // 
             // btnModify
             // 
@@ -97,6 +99,7 @@
             this.btnCancel.Size = new System.Drawing.Size(54, 54);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSearch
             // 
