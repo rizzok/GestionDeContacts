@@ -52,6 +52,8 @@ namespace GestionDeContacts
             btnModify.Enabled = true;
             btnDelete.Enabled = true;
             listBox.Enabled = true;
+            // Focus
+            listBox.Focus();
 
             /* TODO */
             // PictureBox -> hide text (after adding contact)
@@ -117,6 +119,8 @@ namespace GestionDeContacts
             btnModify.Enabled = false;
             btnDelete.Enabled = false;
             listBox.Enabled = false;
+            // Focus on text box Name
+            textBoxName.Focus();
         }
 
         /*
@@ -138,26 +142,43 @@ namespace GestionDeContacts
          */
         private void picBox_Click(object sender, EventArgs e)
         {
-            if (picBox.Enabled)
+            // Select file
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+            // If a file is selected
+            if (dialogResult == DialogResult.OK)
             {
-                // Select file
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                DialogResult dialogResult = openFileDialog.ShowDialog();
-                // If a file is selected
-                if (dialogResult == DialogResult.OK)
+                // Get file path
+                string fileName = openFileDialog.FileName;
+                // show image in pictureBox if the selected file is an image
+                try
                 {
-                    // Get file
-                    string fileName = openFileDialog.FileName;
-                    try
-                    {
-                        picBox.Image = Image.FromFile(fileName);
-                    }
-                    catch (Exception) { }
-
-                    /* TODO */
-                    // if the file isn't an image -> display an alert message to the user
-                    // test
+                    picBox.Image = Image.FromFile(fileName);
                 }
+                catch (Exception) { MessageBox.Show("Le fichier sélectionné doit être une image."); }
+            }
+        }
+
+        /*
+         * Click on add (+) button
+         */
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            // Add a "Particulier" contact
+            if (rdBtnPart.Checked && textBoxName.Text != "" && textBoxFirstname.Text != "" && textBoxAddNumber.Text != "")
+            {
+                // Create "Particulier" object
+                Particulier particulier = new Particulier(textBoxName.Text, textBoxFirstname.Text, textBoxAddNumber.Text, picBox.Image);
+                // Add object to Collection "lesContacts"
+                lesContacts.Add(particulier);
+            }
+            // Add a "Professionnel" contact
+            else if (rdBtnPro.Checked && textBoxName.Text != "" && textBoxAddNumber.Text != "")
+            {
+                // Create "Professionnel" object
+                Professionnel professionnel = new Professionnel(textBoxName.Text, textBoxAddNumber.Text, picBox.Image);
+                // Add object to Collection "lesContacts"
+                lesContacts.Add(professionnel);
             }
         }
     }
