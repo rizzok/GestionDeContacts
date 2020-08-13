@@ -156,7 +156,7 @@ namespace GestionDeContacts
 
                     /* TODO */
                     // if the file isn't an image -> display an alert message to the user
-
+                    // test
                 }
             }
         }
