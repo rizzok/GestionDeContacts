@@ -12,6 +12,9 @@ namespace GestionDeContacts
 {
     public partial class Form1 : Form
     {
+        // Collection Liste de contacts
+        List<Contact> lesContacts = new List<Contact>();
+ 
         public Form1()
         {
             InitializeComponent();
