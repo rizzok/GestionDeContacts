@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace GestionDeContacts
 {
@@ -6,6 +7,7 @@ namespace GestionDeContacts
      * Classe abstraite Contact
      * nom, tel et photo du contact
      */
+    [SerializableAttribute]
     public abstract class Contact
     {
         private string nom;
@@ -36,6 +38,7 @@ namespace GestionDeContacts
      * Classe Particulier, hérite de Contact
      * Ajoute le prénom
      */
+    [SerializableAttribute]
     public class Particulier : Contact
     {
         private string prenom;
@@ -56,6 +59,7 @@ namespace GestionDeContacts
     /**
      * Classe Professionnel, hérite de Contact
      */
+    [SerializableAttribute]
     public class Professionnel : Contact
     {
         public Professionnel(string nom, string tel, Image photo) : base(nom, tel, photo) { }
