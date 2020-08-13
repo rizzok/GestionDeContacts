@@ -67,43 +67,43 @@
             this.btnModify.Image = ((System.Drawing.Image)(resources.GetObject("btnModify.Image")));
             this.btnModify.Location = new System.Drawing.Point(236, 12);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(45, 45);
+            this.btnModify.Size = new System.Drawing.Size(54, 54);
             this.btnModify.TabIndex = 1;
             this.btnModify.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(236, 63);
+            this.btnDelete.Location = new System.Drawing.Point(236, 72);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(45, 45);
+            this.btnDelete.Size = new System.Drawing.Size(54, 54);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(224, 48);
+            this.btnAdd.Location = new System.Drawing.Point(218, 32);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(45, 45);
+            this.btnAdd.Size = new System.Drawing.Size(54, 54);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(224, 99);
+            this.btnCancel.Location = new System.Drawing.Point(218, 92);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(45, 45);
+            this.btnCancel.Size = new System.Drawing.Size(54, 54);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(224, 24);
+            this.btnSearch.Location = new System.Drawing.Point(218, 19);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(45, 45);
+            this.btnSearch.Size = new System.Drawing.Size(54, 54);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -128,14 +128,14 @@
             // 
             // textBoxAddNumber
             // 
-            this.textBoxAddNumber.Location = new System.Drawing.Point(78, 122);
+            this.textBoxAddNumber.Location = new System.Drawing.Point(72, 122);
             this.textBoxAddNumber.Name = "textBoxAddNumber";
             this.textBoxAddNumber.Size = new System.Drawing.Size(138, 22);
             this.textBoxAddNumber.TabIndex = 12;
             // 
             // textBoxFirstname
             // 
-            this.textBoxFirstname.Location = new System.Drawing.Point(78, 91);
+            this.textBoxFirstname.Location = new System.Drawing.Point(72, 91);
             this.textBoxFirstname.Name = "textBoxFirstname";
             this.textBoxFirstname.Size = new System.Drawing.Size(138, 22);
             this.textBoxFirstname.TabIndex = 11;
@@ -143,7 +143,7 @@
             // lblAddNumber
             // 
             this.lblAddNumber.AutoSize = true;
-            this.lblAddNumber.Location = new System.Drawing.Point(7, 125);
+            this.lblAddNumber.Location = new System.Drawing.Point(6, 125);
             this.lblAddNumber.Name = "lblAddNumber";
             this.lblAddNumber.Size = new System.Drawing.Size(66, 17);
             this.lblAddNumber.TabIndex = 10;
@@ -152,7 +152,7 @@
             // lblFirstname
             // 
             this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(7, 94);
+            this.lblFirstname.Location = new System.Drawing.Point(6, 94);
             this.lblFirstname.Name = "lblFirstname";
             this.lblFirstname.Size = new System.Drawing.Size(65, 17);
             this.lblFirstname.TabIndex = 9;
@@ -161,7 +161,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(7, 62);
+            this.lblName.Location = new System.Drawing.Point(6, 62);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 17);
             this.lblName.TabIndex = 8;
@@ -169,7 +169,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(78, 59);
+            this.textBoxName.Location = new System.Drawing.Point(72, 59);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(138, 22);
             this.textBoxName.TabIndex = 7;
@@ -185,6 +185,7 @@
             this.rdBtnPro.TabStop = true;
             this.rdBtnPro.Text = "Professionnel";
             this.rdBtnPro.UseVisualStyleBackColor = true;
+            this.rdBtnPro.CheckedChanged += new System.EventHandler(this.rdBtnPro_CheckedChanged);
             // 
             // rdBtnPart
             // 
@@ -197,6 +198,7 @@
             this.rdBtnPart.TabStop = true;
             this.rdBtnPart.Text = "Particulier";
             this.rdBtnPart.UseVisualStyleBackColor = true;
+            this.rdBtnPart.CheckedChanged += new System.EventHandler(this.rdBtnPart_CheckedChanged);
             // 
             // groupBoxSearch
             // 
@@ -212,7 +214,7 @@
             // 
             // textBoxSearchNumber
             // 
-            this.textBoxSearchNumber.Location = new System.Drawing.Point(78, 35);
+            this.textBoxSearchNumber.Location = new System.Drawing.Point(72, 35);
             this.textBoxSearchNumber.Name = "textBoxSearchNumber";
             this.textBoxSearchNumber.Size = new System.Drawing.Size(138, 22);
             this.textBoxSearchNumber.TabIndex = 13;
@@ -248,6 +250,7 @@
             this.Controls.Add(this.picBox);
             this.Name = "Form1";
             this.Text = "Contacts";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.groupBoxAdd.ResumeLayout(false);
             this.groupBoxAdd.PerformLayout();
