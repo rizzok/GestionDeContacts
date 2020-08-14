@@ -11,6 +11,15 @@ using System.Windows.Forms;
 
 namespace GestionDeContacts
 {
+    /********/
+    /* TODO */
+    /********/
+    // Control if name and firstname type are string, and number type is int
+    // Format number with spaces
+    // Modify fonction
+    // Search fonction
+    // Serialize data
+
     public partial class Form1 : Form
     {
         // Collection Liste de contacts
@@ -26,7 +35,10 @@ namespace GestionDeContacts
          */
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Initialize default settings
             initDefault();
+            // List box update
+            updateListBox();
         }
 
         /*
@@ -34,11 +46,11 @@ namespace GestionDeContacts
          */
         private void initDefault()
         {
-            // PictureBox
+            // PictureBox items
             picBox.Enabled = false;
             picBox.Image = Resources.vide;
             lblAddImage.Visible = false;
-            // Add contact box items
+            // Add contact group box items
             textBoxName.Enabled = false;
             lblFirstname.Visible = true;
             textBoxFirstname.Visible = true;
@@ -51,16 +63,11 @@ namespace GestionDeContacts
             textBoxAddNumber.Text = "";
             rdBtnPart.Checked = false;
             rdBtnPro.Checked = false;
-            // Search box items
+            // Search group box items
             groupBoxSearch.Enabled = true;
             btnModify.Enabled = true;
             btnDelete.Enabled = true;
             listBox.Enabled = true;
-
-            /* TODO */
-            // PictureBox -> hide text (after adding contact)
-            // If datas before : add previous items to List (the 1st item might be selected by default)
-
         }
 
         /*
@@ -127,7 +134,10 @@ namespace GestionDeContacts
          */
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // Initialize default settings
             initDefault();
+            // List box update
+            updateListBox();
         }
 
         /*
@@ -147,9 +157,18 @@ namespace GestionDeContacts
                 try
                 {
                     picBox.Image = Image.FromFile(fileName);
+                    lblAddImage.Visible = false;
                 }
                 catch (Exception) { MessageBox.Show("Le fichier sélectionné doit être une image."); }
             }
+        }
+
+        /*
+         * Click on label add image
+         */
+        private void lblAddImage_Click(object sender, EventArgs e)
+        {
+            picBox_Click(sender, e);
         }
 
         /*
@@ -164,6 +183,9 @@ namespace GestionDeContacts
                 Particulier particulier = new Particulier(textBoxName.Text, textBoxFirstname.Text, textBoxAddNumber.Text, picBox.Image);
                 // Add object to Collection "lesContacts"
                 lesContacts.Add(particulier);
+                // Initialize default settings
+                initDefault();
+                // List box update
                 updateListBox();
             }
             // Add a "Professionnel" contact
@@ -173,6 +195,9 @@ namespace GestionDeContacts
                 Professionnel professionnel = new Professionnel(textBoxName.Text, textBoxAddNumber.Text, picBox.Image);
                 // Add object to Collection "lesContacts"
                 lesContacts.Add(professionnel);
+                // Initialize default settings
+                initDefault();
+                // List box update
                 updateListBox();
             }
         }
@@ -182,20 +207,45 @@ namespace GestionDeContacts
          */
         private void updateListBox()
         {
-            initDefault();
             listBox.Items.Clear();
             // Shutdown the painting of the ListBox as items are added.
             listBox.BeginUpdate();
             // Get data from "lesContacts" collection
             foreach (Contact contact in lesContacts)
             {
-                // Show the contact in listBox
-                listBox.Items.Add(contact.getNom() + " (" + contact.getTel() + ")");
+                // Add to listBox
+                listBox.Items.Add(contact.infosContact());
             }
             // Allow the ListBox to repaint and display the new items.
             listBox.EndUpdate();
-            // Select first item of the listBox
-            listBox.SetSelected(0, true);
+
+            if (listBox.Items.Count > 0)
+            {
+                // Select first item of the listBox
+                listBox.SetSelected(0, true);
+                // Enable modify and delete buttons
+                btnModify.Enabled = true;
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                // Disable modify and delete buttons
+                btnModify.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+        }
+
+        /*
+         * Click on Delete button
+         */
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Delete contact from lesContact collection
+            lesContacts.RemoveAt(listBox.SelectedIndex);
+            // Initialize default settings
+            initDefault();
+            // List box update
+            updateListBox();
         }
     }
 }

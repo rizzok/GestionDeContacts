@@ -82,6 +82,7 @@
             this.btnDelete.Size = new System.Drawing.Size(54, 54);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -251,6 +252,7 @@
             this.lblAddImage.TabIndex = 9;
             this.lblAddImage.Text = "Cliquez ici pour \r\najouter une image";
             this.lblAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAddImage.Click += new System.EventHandler(this.lblAddImage_Click);
             // 
             // Form1
             // 
