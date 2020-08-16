@@ -266,6 +266,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.picBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Contacts";
             this.Load += new System.EventHandler(this.Form1_Load);
