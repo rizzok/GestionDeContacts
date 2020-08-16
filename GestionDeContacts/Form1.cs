@@ -204,7 +204,7 @@ namespace GestionDeContacts
         #region Private methods
 
         /// <summary>
-        /// Init default settings
+        /// Initialize default settings
         /// </summary>
         private void initDefault()
         {
@@ -214,23 +214,22 @@ namespace GestionDeContacts
             lblAddImage.Visible = false;
 
             // Add contact group box items
-            textBoxName.Enabled = false;
-            lblFirstname.Visible = true;
-            textBoxFirstname.Visible = true;
-            textBoxFirstname.Enabled = false;
-            textBoxAddNumber.Enabled = false;
-            btnAdd.Enabled = false;
-            btnCancel.Enabled = false;
-            textBoxName.Text = "";
-            textBoxFirstname.Text = "";
-            textBoxAddNumber.Text = "";
             rdBtnPart.Checked = false;
             rdBtnPro.Checked = false;
+            btnAdd.Enabled = false;
+            btnCancel.Enabled = false;
+            textBoxName.Enabled = false;
+            textBoxFirstname.Enabled = false;
+            textBoxAddNumber.Enabled = false;
+            lblFirstname.Visible = true;
+            textBoxFirstname.Visible = true;
+            // Empty text boxes
+            textBoxName.Text = string.Empty;
+            textBoxFirstname.Text = string.Empty;
+            textBoxAddNumber.Text = string.Empty;
 
             // Search group box items
             groupBoxSearch.Enabled = true;
-            btnModify.Enabled = true;
-            btnDelete.Enabled = true;
             listBox.Enabled = true;
         }
 
@@ -248,13 +247,14 @@ namespace GestionDeContacts
             // Get data from "lesContacts" collection
             foreach (Contact contact in lesContacts)
             {
-                // Add to listBox
+                // Add item to listBox
                 listBox.Items.Add(contact.infosContact());
             }
 
-            // Allow the ListBox to repaint and display the new items.
+            // Allow the ListBox to repaint and display the new items
             listBox.EndUpdate();
 
+            // If the listBox contains at least 1 item
             if (listBox.Items.Count > 0)
             {
                 // Select first item of the listBox
@@ -264,6 +264,7 @@ namespace GestionDeContacts
                 btnModify.Enabled = true;
                 btnDelete.Enabled = true;
             }
+            // If the listBox contains no items
             else
             {
                 // Disable modify and delete buttons
